@@ -323,13 +323,13 @@ Recommended Extensions:
 # 📂 Step 4 — Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/iamdeveloperrayhan/Shopwise---eCommerce.git
 ```
 
 Go inside the project folder.
 
 ```bash
-cd your-repository
+cd Shopwise---eCommerce
 ```
 
 ---
