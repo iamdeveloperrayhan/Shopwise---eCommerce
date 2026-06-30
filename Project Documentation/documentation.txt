@@ -1,0 +1,129 @@
+🛒 Django E-Commerce Project Documentation
+📌 Project Overview
+
+This is a fully functional Django-based E-commerce web application built with a modular architecture. The project supports user authentication, product management, cart system, order processing, payment integration (Stripe), and review system.
+
+The application is designed with a modern, responsive UI/UX, optimized up to 1200px screen width, ensuring a smooth experience across devices.
+
+
+⚙️ Tech Stack
+1. Backend
+2. Python 3.14.2
+3. Django Framework
+4. PostgreSQL (Database)
+5. Frontend
+6. HTML5
+7. CSS3
+8. Bootstrap 5
+9. JavaScript
+10. jQuery
+11. Font Awesome
+12. Line Icons
+13. Google Fonts
+14. Payment Gateway
+15. Stripe API (for secure online payments)
+
+🚀Others
+1. dotenv (.env file for environment variables)
+2. Pillow (image handling)
+3. Gunicorn (production server – optional)
+4. Whitenoise (static file handling – optional)
+
+
+🧩Django Apps Structure
+
+The project is divided into multiple apps:
+
+accounts → User authentication, profile management
+products → Product listing, details, categories
+carts → Shopping cart functionality
+orders → Order placement and tracking
+payments → Stripe payment integration
+reviews → Product review system
+shared → Common utilities and shared components
+
+📂 Project Features
+
+👤 User System
+1. User Registration
+2. Login / Logout
+3. Profile Management
+
+🛍️ Product System
+1. Product listing page
+2. Product details page
+3. Image gallery support
+4. Category-based filtering
+
+🛒 Cart System
+1. Add to cart
+2. Remove from cart
+3. Quantity update
+4. Cart total calculation
+
+📦 Order System
+1. Checkout process
+2. Order confirmation
+3. Order history
+
+💳 Payment System
+1. Stripe payment integration
+2. Secure transaction handling
+
+⭐ Review System
+1. User product reviews
+2. Ratings system
+
+🎨 UI/UX Design
+1. Fully responsive design (up to 1200px optimized)
+2. Clean modern interface
+3. Smooth navigation and user experience
+
+🖼️ Media & Static Files
+1. media/ → Uploaded product images and user uploads
+2. static/ →
+3. CSS files
+4. JavaScript files
+5. Responsive design assets
+6. Custom UI components
+
+🌱 Database
+1. PostgreSQL used as primary database
+2. Efficient relational structure for users, products, orders, and payments
+
+🔐 Environment Variables
+
+Sensitive data is stored securely using .env file:
+
+1. SECRET_KEY
+2. DEBUG mode
+3. Database credentials
+4. Stripe API keys
+
+📄 Extra Features
+1. seed.py → Used to populate database with initial sample data
+2. Custom 404 error page
+3. 15+ total pages including:
+4. Home page
+5. Product page
+6. Login / Register pages
+7. Profile page
+5. Cart detail page
+9. Checkout page
+10. Error pages
+
+🚀 Project Highlights
+1. Scalable Django architecture
+2. Clean separation of apps (modular design)
+3. Secure payment integration with Stripe
+4. Fully responsive UI (Bootstrap-based)
+5. Production-ready configuration with .env
+6. Well-structured codebase for easy maintenance
+
+📌 Optional Add-ons (Future Improvements)
+1. Django REST API (for mobile app support)
+2. Redis caching for performance
+3. Celery for background tasks (email, order processing)
+4. Advanced search & filters
+5. Wishlist feature
+6. Coupon/discount system

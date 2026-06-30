@@ -1,0 +1,931 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopwise - eCommerce</title>
+  <!-- Meta Description Start -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!-- Meta Description End -->
+  
+  <!-- Meta Port Start -->
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+  <!-- Meta Port End -->
+  
+  <!-- Favicons Start -->
+  <link rel="icon" href="https://bestwebcreator.com/shopwise/demo/assets/images/favicon.png" sizes="any">
+  <link rel="icon" href="https://bestwebcreator.com/shopwise/demo/assets/images/favicon.png" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://bestwebcreator.com/shopwise/demo/assets/images/favicon.png">
+  <!-- Favicons End -->
+  
+  <!-- Add to homescreen for Chrome on Android -->
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+  <!-- Add to homescreen for Safari on iOS -->
+
+  <!-- Google Fonts Link Start -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Google Fonts Link End -->
+
+  <!-- jQuery CSS Link Start -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static "css/xzoom.min.css" %}">
+  <!-- jQuery CSS Link End -->
+
+  <!-- Linearicons icon css link Start -->
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+  <!-- Linearicons icon  css link End -->
+
+  <!-- Font Awesome Link Start -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome Link End -->
+
+  <!-- Boortstrap CSS Start -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <!-- Boortstrap CSS End -->
+
+  <!-- CSS Link Start -->
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="{% static "css/hover.css" %}">
+  <link rel="stylesheet" href="{% static "css/root.css" %}">
+  <link rel="stylesheet" href="{% static "css/details.css" %}">
+  <!-- CSS Link End -->
+  
+  <!-- Responsive CSS Link Start -->
+  <link rel="stylesheet" href="{% static "responsive/index-responsive.css" %}">
+  <!-- Responsive CSS Link End -->
+</head>
+<body onload="preloader()" onoffline="offline()" ononline="online()">
+
+  <!-- Preloader Section Start -->
+   <section>
+      <div id="preloader">
+        <div id="loader"></div>
+      </div>
+   </section>
+  <!-- Preloader Section End -->
+  <!-- Offline Msg -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast-offline" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="border-radius: 0px;border: none;">
+      <div class="toast-header">
+        <img style="height: 25px;" src="https://bestwebcreator.com/shopwise/demo/assets/images/logo_dark.png" class="rounded me-2" alt="ERROR">
+        <strong class="me-auto"></strong>
+        <small>1 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        You are currently offline
+        <br>
+      </div>
+      <button style="width: 50%;" class="m-2 btn">Refresh</button>
+    </div>
+  </div>
+  <!-- Offline Msg -->
+  <!-- Online Msg -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast-online" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="border-radius: 0px;border: none;">
+      <div class="toast-header">
+        <img style="height: 25px;" src="https://bestwebcreator.com/shopwise/demo/assets/images/logo_dark.png" class="rounded me-2" alt="ERROR">
+        <strong class="me-auto"></strong>
+        <small>1 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        You are currently Online
+        <br>
+      </div>
+      <button style="width: 50%;" type="button" class="m-2 btn" data-bs-dismiss="toast" aria-label="Close">Close</button>
+    </div>
+  </div>
+  <!-- Online Msg -->
+  <!-- Menu Section Start -->
+  <header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid fluid-Width none-992">
+          <div class="menu-logo">
+            <img onclick="window.location.href='{% url "product_list" %}'" src="https://bestwebcreator.com/shopwise/demo/assets/images/logo_dark.png" alt="">
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item Home"><a class="nav-link" href="{% url "product_list" %}">HOME<i class="fa-light fa-chevron-down"></i></a>
+                <ul class="Home-Sub">
+                  <li><a href="{% url "pagenotfound" %}">Fashion 1</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Fashion 2</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Furniture 1</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Furniture 2</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Electronics 1</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Electronics 2</a></li>
+                </ul>
+              </li>
+              <li class="nav-item Home"><a class="nav-link" href="#" style="color: #ff324d;">PAGES<i class="fa-light fa-chevron-down"></i></a>
+                <ul class="Home-Sub">
+                  <li><a href="{% url "pagenotfound" %}">About Us</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Contact Us</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Faq</a></li>
+                  <li><a href="{% url "pagenotfound" %}">404 Error Page</a></li>
+                  <li><a href="{% url "login" %}">Login</a></li>
+                  <li><a href="{% url "register" %}">Register</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Terms & Conditions</a></li>
+                </ul>
+              </li>
+              <li class="nav-item PRODUCT"><a class="nav-link" href="#">PRODUCT<i class="fa-light fa-chevron-down"></i></a>
+                <div class="PRODUCT-Sub">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        <p>WOMAN'S</p>
+                        <nav>
+                          <ul>
+                            <li><a href="{% url "pagenotfound" %}">Vestibulum sed</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec porttitor</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec vitae facilisis</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Curabitur tempus</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Vivamus in tortor</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                      <div class="col-3">
+                        <p>WOMAN'S</p>
+                        <nav>
+                          <ul>
+                            <li><a href="{% url "pagenotfound" %}">Vestibulum sed</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec porttitor</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec vitae facilisis</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Curabitur tempus</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Vivamus in tortor</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                      <div class="col-3">
+                        <p>WOMAN'S</p>
+                        <nav>
+                          <ul>
+                            <li><a href="{% url "pagenotfound" %}">Vestibulum sed</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec porttitor</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec vitae facilisis</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Curabitur tempus</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Vivamus in tortor</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                      <div class="col-3">
+                        <p>WOMAN'S</p>
+                        <nav>
+                          <ul>
+                            <li><a href="{% url "pagenotfound" %}">Vestibulum sed</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec porttitor</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec vitae facilisis</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Curabitur tempus</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Vivamus in tortor</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div>
+                    <div class="row Wooden">
+                      <div class="col-4">
+                        <div class="Wooden-Chair bg-img-1 bg-img-1-1">
+                          <div class="chair">
+                            <span>10% Off</span>
+                            <p>Wooden Chair</p>
+                            <a href="{% url "pagenotfound" %}">Shop now</a>
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="col-4">
+                        <div class="Wooden-Chair bg-img-2 bg-img-2-2">
+                          <div class="chair">
+                            <span>15% Off</span>
+                            <p>Wooden Chair</p>
+                            <a href="{% url "pagenotfound" %}">Shop now</a>
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="col-4">
+                        <div class="Wooden-Chair bg-img-3 bg-img-3-3">
+                          <div class="chair">
+                            <span>23% Off</span>
+                            <p>Wooden Chair</p>
+                            <a href="{% url "pagenotfound" %}">Shop now</a>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item BLOG"><a class="nav-link" href="#">BLOG<i class="fa-light fa-chevron-down"></i></a>
+                <ul class="right-icon">
+                  <li class="Grids"><a href="#">Grids</a>
+                    <ul class="Grids-Sub">
+                      <li><a href="{% url "pagenotfound" %}">3 Columns</a></li>
+                      <li><a href="{% url "pagenotfound" %}">4 Columns</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Right Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Standard Left Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Standard Right Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li class="Masonry"><a href="#">Masonry</a>
+                    <ul class="Masonry-Sub">
+                      <li><a href="{% url "pagenotfound" %}">3 Columns</a></li>
+                      <li><a href="{% url "pagenotfound" %}">4 Columns</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Right Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li class="Singie-PostSingie-Post"><a href="#">Singie Post</a>
+                    <ul class="Singie-Post-Sab">
+                      <li><a href="{% url "pagenotfound" %}">Default</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Slider Post</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Video Post</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Audio Post</a></li>
+                    </ul>
+                  </li>
+                  <li class="List"><a href="#">List</a>
+                    <ul class="List-Sub">
+                      <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Right Sidebar</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item Shop"><a class="nav-link" href="#">SHOP<i class="fa-light fa-chevron-down"></i></a>
+                <div class="container Shop-Sub">
+                  <div class="row">
+                    <div class="col-3">
+                      <p>Shop Page Layout</p>
+                      <ul>
+                        <li><a href="{% url "pagenotfound" %}">Shop List View</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Shop List Left Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Shop List Right Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Right Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Shop Load More</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-3">
+                      <p>Other Pages</p>
+                      <ul>
+                        <li><a href="{% url "cart_detail" %}">Cart</a></li>
+                        <li><a href="{% url "checkout" %}">Checkout</a></li>
+                        <li><a href="{% url "orderdetail" %}">Order Details</a></li>
+                        <li><a href="{% url "profile" %}">My Account</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Wishlist</a></li>
+                        <li><a href="{% url "pagenotfound" %}">compare</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-3">
+                      <p>Product Pages</p>
+                      <ul>
+                        <li><a href="{% url "pagenotfound" %}">Default</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Right Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Thumbnails Left</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-3">
+                      <div class="Collection Collection-1">
+                        <p>NEW COLLECTION</p>
+                        <h5>SALE 30% OFF</h5>
+                        <a href="{% url "pagenotfound" %}">Shop Now</a>
+                      </div>          
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="{% url "pagenotfound" %}">CONTACT US</a></li>
+            </ul>
+          </div>
+          <div class="menu-icon">
+            <ul>
+              <li class="position-relative msg-pos" style="margin-right: 30px;"><i class="fa-thin fa-cart-shopping"></i>
+                <span class="badges position-absolute start-100 translate-middle badge rounded-pill bg-danger">{{ cart_items }}</span>
+                <div class="msg overflow-auto">
+                  {% for item in menu_items %}
+                    <div class="toast show m-1" role="alert" aria-live="assertive" aria-atomic="true">
+                      <div class="toast-header" style="align-items: flex-start;border-radius: 0px;background-clip: initial;">
+                        {% if item.variant.image %}
+                          <img src="{{ item.variant.image.url }}" alt="Error">
+                        {% else %}
+                          {% with item.variant.product.product_images.first as img %}
+                            {% if img %}
+                              <img src="{{ img.image.url }}" alt="Error">
+                            {% else %}
+                              <img alt="No image">
+                            {% endif %}
+                          {% endwith %}
+                        {% endif %}
+                        <a href="{% url "product_detail" pk=item.variant.product.id %}" class="me-auto msg-user">{{item.variant.product.product_name}}<p>{{ item.variant.product.price }}</p></a>
+                        <small>{{item.time_ago}}</small><br>
+                        <form id="remove-form-{{ item.id }}" method="post" action="{% url 'remove_cart_item' item.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="quantity" value="0">
+                        </form>
+                        <button type="button" onclick="document.getElementById('remove-form-{{ item.id }}').submit()" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                      </div>
+                    </div>
+                  {% endfor %}
+                  <div class="Subtotal">
+                    <h4>Total :</h4>
+                    <h4>{{ menu_total_price }}</h4>
+                  </div>
+                  <div class="buttons">
+                    <a href="{% url "cart_detail" %}">View Cart</a>
+                    <a href="{% url "checkout" %}">Checkout</a>
+                  </div>
+                </div>
+              </li>
+              <li title="Profile">
+                <i onclick="window.location.href='{% url "profile" %}'" class="fa-brands fa-grav" style="font-size: 31px; color: #000; margin-top: 2px;"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</header>
+  <!-- Menu Section End -->
+  <!-- Pagenation Section Start -->
+  <div class="container-fluid" style="background-color: var(--Product-Details-bg);margin-top: 63px;">
+    <div class="container">
+      <div class="Product-Details">
+        <h2>Product Detail</h2>
+        <div class="Pagenation">
+          <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url "product_list" %}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{% url "product_list" %}">Page</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pagenation Section End -->
+  <!-- Product Detail Section Start-->
+  {% if product %}
+   <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-xl-6">
+          <div class="xzoom-container">
+            {% if product.product_images.exists %}
+              {% with product.product_images.first as img %}
+                {% if img %}
+                  <img class="xzoom" style="width: 535px; height: 605px; object-fit: cover;" src="{{ img.image.url }}" xoriginal="{{ img.image.url }}" alt="Image Showing Error"/>
+                {% endif %}
+              {% endwith %}
+              <div class="xzoom-thumbs mt-3">
+                {% for image in product.product_images.all %}
+                  <a href="{{ image.image.url }}"><img class="xzoom-gallery" width="80" src="{{ image.image.url }}" alt="Image Showing Error" xpreview="{{ image.image.url }}" title="The description goes here"></a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-12 col-xl-6">
+          <div class="Product-Detail-txt">
+            <h2><a href="{% url "product_detail" pk=product.id %}">{{ product.product_name }}</a></h2>
+            <div class="Detail-price">
+              <div class="price">
+                <span class="new">${{ product.price }}</span>
+                <span class="old">${{ product.price|add:"35" }}</span>
+                <span class="Off">
+                  {% widthratio 35 product.price|add:"35" 100 %}% OFF
+                </span>
+              </div>
+              <div class="rating">
+                {% if product.reviews.exists %}
+                  {% for i in "12345"|make_list %}
+                      {% if forloop.counter <= product.reviews.first.rating %}
+                          <i class="fa-solid fa-star"></i>
+                      {% else %}
+                          <i class="lnr lnr-star"></i>
+                      {% endif %}
+                  {% endfor %}
+                {% else %}
+                    <i class="lnr lnr-star"></i>
+                    <i class="lnr lnr-star"></i>
+                    <i class="lnr lnr-star"></i>
+                    <i class="lnr lnr-star"></i>
+                    <i class="lnr lnr-star"></i>
+                {% endif %}
+                <p>({{ product.reviews.count }})</p>
+              </div>
+            </div>
+          </div>
+          <p>{{ product.description|linebreaksbr}}</p>
+          <div class="row">
+            <div class="col-2 col-sm-1 col-lg-1 col-xxl-1 Day-Text price-list_icon" style="width: 5.333333%; padding-right: 0px;">
+              <i class="lnr lnr-checkmark-circle"></i>
+              <i class="lnr lnr-sync"></i>
+              <i class="lnr lnr-briefcase"></i>
+            </div>
+            <div class="col-10 col-sm-11 col-lg-11 col-xxl-11 Day-Text price-list" style="padding-left: 0px;">
+              <ul>
+                <li><a href="#">{{product.warranty}}</a></li>
+                <li><a href="#">{{product.guarantee}}</a></li>
+                {% if product.cash_on_delivery == True %}
+                  <li><a href="#">Cash on Delivery available</a></li>
+                {% else %}
+                  <li><a href="#">Cash on Delivery not available</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+          <div class="color">
+            <h6>Color</h6>
+            {% for product_variants in product.product_variants.all %}
+              <div class="color-btn">
+                <div style="background-color: {{ product_variants.color.hex_code }};"></div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="size">
+            <h6>Size</h6>
+            <div class="size-btn">
+              {% for product_variants in product.product_variants.all %}
+                <span>{{product_variants.size}}</span>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="add-product">
+            <div class="input-add">
+              <i class="fa-solid fa-minus user-select-none"></i>
+              <input id="input" class="qty_display" value="{{ item_quan|floatformat:0 }}" min="1" data-stock="{{ stock }}" readonly>
+              <i class="fa-solid fa-plus user-select-none"></i>
+            </div>
+            <form id="cartForm{{ product.id }}" method="post" action="{% url 'add_to_cart' %}" style="display: inline-block;">
+              {% csrf_token %}
+              <input type="hidden" name="variant_id" value="{{ product.product_variants.first.id }}">
+              <input type="hidden" class="qty_hidden" name="quantity" value="1">
+            </form>
+            <script>
+              function addToCart(productId) {
+                let form = $("#cartForm" + productId);
+                let quantity = form.prev(".input-add").find(".qty_display").val();
+                form.find(".qty_hidden").val(quantity);
+                form.submit();
+              }
+            </script>
+            <a class="btn" style="width: 25%;" onclick="addToCart({{ product.id }}); return false;"><i class="lnr lnr-cart"></i>Add To Cart</a>
+            <i class="lnr lnr-thumbs-up"></i>
+            <i class="lnr lnr-heart"></i>
+          </div>
+          <div class="tag">
+            {% with sku_item=product.product_variants.all|first %}
+              {% if sku_item %}
+                <span>SKU: <a href="#">{{ sku_item.sku }}</a></span><br>
+              {% endif %}
+            {% endwith %}
+            <span>Category: <a href="#">{{product.category.category_name}}</a></span><br>
+            <span>Tags:
+              {% for tag in product.tags.all %}
+                <a href="#">{{tag.name}},</a>
+              {% endfor %}
+            </span>
+          </div>
+          <div class="share">
+            <h6>Share : </h6>
+            <ul>
+              <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-google-plus-g"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+   </section>
+  {% endif %}
+  <!-- Product Detail Section End-->
+  <!-- Tab Section Start -->
+   <section>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">DESCRIPTION</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">PROFILE</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">REVIEWS ({{product.reviews.count}})</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+              <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Vivamus bibendum magna Lorem ipsum dolor sit amet, consectetur adipiscing elit.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <td>Capacity</td>
+                    <td class="col-10">{{ product.ProductProfile.capacity }}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Color</td>
+                    <td class="col-10">{{ product.product_variants.first.color.name }}</td>
+                  </tr>
+                  <tr>
+                    <td>Water Resistant</td>
+                    <td class="col-10">{% if product.ProductProfile.water_resistant == True %}Yes{% else %}No{% endif %}</td>
+                  </tr>
+                  <tr>
+                    <td>Material</td>
+                    <td class="col-10">{{ product.ProductProfile.material}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+              <h3>{{product.reviews.count}} Review For {{product.product_name}}</h3>
+              <div class="container">
+                {% for review in product.reviews.all %}
+                  <div class="row mb-4 review-card" id="review-{{ review.id }}" style="border-bottom: 1px solid #eee; padding-bottom: 20px;">
+                    <div class="col-3 col-md-2 col-xl-1 tab-msg-img">
+                      {% if review.customer.profile_picture %}
+                        <img src="{{ review.customer.profile_picture.url }}" alt="Profile Picture Showing Error" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                      {% else %}
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background-color: #ff324d; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">
+                          {% if review.customer.user.first_name %}
+                            {{ review.customer.user.first_name|first|upper }}
+                          {% else %}
+                            {{ review.customer.user.username|first|upper }}
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                    </div>
+                    <div class="col-9 col-md-10 col-xl-11">
+                      <div class="Xz-1" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                          <span>
+                            {% if review.customer.user.first_name %}
+                              {{ review.customer.user.first_name }} {{ review.customer.user.last_name }}
+                            {% else %}
+                              {{ review.customer.user.username }}
+                            {% endif %}
+                          </span><br>
+                          <div class="Star-gold">
+                            {% for i in "12345"|make_list %}
+                                {% if forloop.counter <= review.rating %}
+                                    <i class="fa-solid fa-star"></i>
+                                {% else %}
+                                    <i class="lnr lnr-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                          </div>
+                        </div>
+                        <!-- Edit & Delete Buttons -->
+                        {% if user.is_authenticated and user == review.customer.user %}
+                          <div class="review-actions" style="width: 25%;">
+                            <button class="btn" style="width: 40%;" data-review-id="{{ review.id }}" data-bs-toggle="modal" data-bs-target="#editReviewModal{{ review.id }}" style="margin-right: 5px;">
+                              <i class="fa-solid fa-pen-to-square"></i> Edit
+                            </button>
+                            <a href="{% url "review_delete" pk=review.id %}" class="btn" style="width: 40%;">
+                              <i class="fa-solid fa-trash"></i> Delete
+                            </a>
+                          </div>
+                        {% endif %}
+                      </div>
+                      <i>{{ review.created_at|date:"M d, Y" }}</i>
+                      {% if review.comment %}
+                        <p>{{ review.comment }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+
+                  <!-- Edit Review Modal -->
+                  {% if user.is_authenticated and user == review.customer.user %}
+                    <div class="modal fade" id="editReviewModal{{ review.id }}" tabindex="-1" aria-labelledby="editReviewLabel{{ review.id }}" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="editReviewLabel{{ review.id }}">Edit Your Review</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <form method="POST" action="{% url 'review_update' review.id %}">
+                            {% csrf_token %}
+                            <div class="modal-body" style="width: 95%;margin: auto;">
+                              <label for="edit_rating_{{ review.id }}">Rating:</label>
+                              <div class="rating-stars" style="font-size: 24px; margin-bottom: 10px;" id="edit_stars_{{ review.id }}">
+                                <i class="fa-regular fa-star star-rating-edit" data-value="1" style="color: var(--start); cursor: pointer; transition: color 0.2s;"></i>
+                                <i class="fa-regular fa-star star-rating-edit" data-value="2" style="color: var(--start); cursor: pointer; transition: color 0.2s;"></i>
+                                <i class="fa-regular fa-star star-rating-edit" data-value="3" style="color: var(--start); cursor: pointer; transition: color 0.2s;"></i>
+                                <i class="fa-regular fa-star star-rating-edit" data-value="4" style="color: var(--start); cursor: pointer; transition: color 0.2s;"></i>
+                                <i class="fa-regular fa-star star-rating-edit" data-value="5" style="color: var(--start); cursor: pointer; transition: color 0.2s;"></i>
+                              </div>
+                              <input type="hidden" name="rating" id="edit_rating_{{ review.id }}" value="{{ review.rating }}">
+                              <label for="edit_comment_{{ review.id }}">Comment:</label>
+                              <textarea rows="6" placeholder="Your Review *" name="comment" id="edit_comment_{{ review.id }}" class="w3review" required>{{ review.comment }}</textarea>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
+                              <button type="submit" class="btn">Update</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      document.getElementById('editReviewModal{{ review.id }}').addEventListener('show.bs.modal', function() {
+                        initEditStars({{ review.id }}, {{ review.rating }});
+                      });
+                    </script>
+                  {% endif %}
+                {% endfor %}
+                {% if review == True %}
+                  <div class="col-12 tab-h6">
+                    <p style="color: #ff324d; font-weight: bold;">
+                      <i class="fa-solid fa-check-circle"></i> You have already reviewed this product.
+                    </p>
+                  </div>
+                {% else %}
+                  <div class="row">
+                    {% if user.is_authenticated %}
+                      <div class="col-12 tab-h6">
+                        <h6>Add a review</h6>
+                        <div class="tab-from">
+                          <form method="POST" action="{% url 'product_detail' pk=product.id %}">
+                            {% csrf_token %}
+                            <label for="id_rating">Rating:</label>
+                            <div class="rating-stars" style="font-size: 24px; margin-bottom: 10px;">
+                              <i class="fa-regular fa-star star-rating" data-value="1" style="color: var(--start); cursor: pointer; transition: color 0.2s;"></i>
+                              <i class="fa-regular fa-star star-rating" data-value="2" style="color: var(--start); cursor: pointer; transition: color 0.2s;"></i>
+                              <i class="fa-regular fa-star star-rating" data-value="3" style="color: var(--start); cursor: pointer; transition: color 0.2s;"></i>
+                              <i class="fa-regular fa-star star-rating" data-value="4" style="color: var(--start); cursor: pointer; transition: color 0.2s;"></i>
+                              <i class="fa-regular fa-star star-rating" data-value="5" style="color: var(--start); cursor: pointer; transition: color 0.2s;"></i>
+                            </div>
+                            <textarea rows="6" placeholder="Your Review *" name="comment" class="w3review" required></textarea><br>
+                            <input type="hidden" name="rating" id="id_rating" value="">
+                            <button type="submit" class="btn">Submit Review</button>
+                          </form>
+                        </div>
+                      </div>
+                    {% else %}
+                      <div class="col-12 tab-h6">
+                        <p>You must <a href="{% url 'login' %}">login</a> to submit a review.</p>
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </section>
+  <!-- Tab Section End -->
+  <!-- Releted Products Section Start -->
+   <section>
+    <div class="container">
+      <div class="row Related">
+        <h3>Related Products</h3>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <section>
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <div class="owl-carousel owl-theme owl-carousel-1">
+                    {% for related_product in related_products %}
+                      <div class="item">
+                        <div class="card" style="width: 18rem;height: 445px;">
+                          <div class="product-btn-txt-all">
+                            <div class="card-img">
+                              <img src="{{related_product.product_images.first.image.url}}" alt="Image Showing Error">
+                            </div>
+                            <div class="img-btn">
+                              <a href="#"><i class="lnr lnr-cart"></i></a>
+                              <a href="#"><i class="lnr lnr-heart"></i></a>
+                              <a href="#"><i class="lnr lnr-bookmark"></i></a>
+                            </div>
+                          </div>
+                          <div class="card-body text-center">
+                            <a href="{% url "product_detail" pk=related_product.id %}">{{related_product.product_name}}</a><br>
+                            <div class="price">
+                              <span>${{related_product.price}}</span>
+                              <span class="old">${{ related_product.price|add:"35" }}</span>
+                            </div>
+                            <div class="rating">
+                              {% if related_product.reviews.exists %}
+                                {% for i in "12345"|make_list %}
+                                    {% if forloop.counter <= related_product.reviews.first.rating %}
+                                        <i class="fa-solid fa-star"></i>
+                                    {% else %}
+                                        <i class="lnr lnr-star"></i>
+                                    {% endif %}
+                                {% endfor %}
+                              {% else %}
+                                  <i class="lnr lnr-star"></i>
+                                  <i class="lnr lnr-star"></i>
+                                  <i class="lnr lnr-star"></i>
+                                  <i class="lnr lnr-star"></i>
+                                  <i class="lnr lnr-star"></i>
+                              {% endif %}
+                              <p>({{ related_product.reviews.count }})</p>
+                            </div>
+                            <div class="card-btn">
+                              <form id="cartForm{{ product.id }}" method="post" action="{% url 'add_to_cart' %}">
+                              {% csrf_token %}
+                              {% for product_variants in product.product_variants.all %}
+                                <input type="hidden" name="variant_id" value="{{ product.product_variants.first.id }}">
+                                <input type="number" style="display: none;" name="quantity" value="1" min="1" max="{{ product_variants.stock }}" {% if product_variants.stock == 0 %}disabled{% endif %}>
+                              {% endfor %}
+                            </form>
+                            <a onclick="document.getElementById('cartForm{{ product.id }}').submit(); return false;" {% if variant.stock == 0 %}disabled{% endif %}><i class="lnr lnr-cart"></i>Add To Cart</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+           </section>
+        </div>
+      </div>
+    </div>
+   </section>
+  <!-- Releted Products Section End -->
+  <!-- Subscribe Section Start -->
+   <section id="subscribe">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="subscribe">
+            <h2>Subscribe Our Newsletter</h2>
+            <form active="#" class="subscribe-form">
+              <input type="text" placeholder="Enter Your Email">
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+   </section>
+  <!-- Subscribe Section End -->
+  <!-- Footer-section Start -->
+  <footer style="margin-top: 0px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-xxl-3">
+          <h6 class="Footer-h6">Contact info</h6>
+          <div class="row">
+            <div class="col-1">
+              <i class="lnr lnr-map-marker"></i><br>
+              <i class="lnr lnr-envelope"></i><br>
+              <i class="lnr lnr-phone-handset"></i><br>
+            </div>
+            <div class="col-11">
+              <p> 123 Street, Old Trafford, NewYork, USA</p>
+              <a href="#">info@sitename.com</a>
+              <p> + 457 789 789 65</p>
+            </div>
+          </div>
+          <nav class="Footer-social Footer-social-details">
+            <ul>
+              <li><a href="{% url "pagenotfound" %}"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="{% url "pagenotfound" %}"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="{% url "pagenotfound" %}"><i class="fa-brands fa-google-plus-g"></i></a></li>
+              <li><a href="{% url "pagenotfound" %}"><i class="fa-brands fa-youtube"></i></a></li>
+              <li><a href="{% url "pagenotfound" %}"><i class="fa-brands fa-wordpress"></i></a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-6 col-md-4 col-xxl-3">
+          <h6 class="Footer-h6">Useful Links</h6>
+          <ul class="Footer-txt-item">
+            <li><a href="{% url "pagenotfound" %}">About Us</a></li>
+            <li><a href="{% url "pagenotfound" %}">FAQ</a></li>
+            <li><a href="{% url "pagenotfound" %}">Location</a></li>
+            <li><a href="{% url "pagenotfound" %}">Affiliates</a></li>
+            <li><a href="{% url "pagenotfound" %}">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4 col-xxl-3">
+          <h6 class="Footer-h6">My Account</h6>
+          <ul class="Footer-txt-item">
+            <li><a href="{% url "profile" %}">My Account</a></li>
+            <li><a href="{% url "pagenotfound" %}">Discount</a></li>
+            <li><a href="{% url "pagenotfound" %}">Returns</a></li>
+            <li><a href="{% url "orderdetail" %}">Orders History</a></li>
+            <li><a href="{% url "orderdetail" %}">Order Tracking</a></li>
+          </ul>
+        </div>
+        <div class="col-12 mb-5 col-md-4 col-xxl-3">
+          <h6 class="Footer-h6">Newsletter</h6>
+          <p>If you want to get an email from us every time we have a new special offer, then sign up here!</p>
+          <div class="Footer-input">
+            <input type="text" placeholder="Enter your email">
+            <button type="submit"><i class="lnr lnr-checkmark-circle"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- Copyright Footer Start -->
+  <div class="Copyright">
+    <div class="Copyright-txt">
+      <p>Copyright © 2024. All rights reserved. Template by <a href="https://facebook.com/devloperrayhan" target="_blank">Developer Rayhan</a>.</p>
+    </div>
+    <div class="Copyright-img">
+      <div class="Footer-img">
+        <a href="{% url "pagenotfound" %}"><img src="https://bestwebcreator.com/shopwise/demo/assets/images/visa.png" alt="ERROR"></a>
+        <a href="{% url "pagenotfound" %}"><img src="https://bestwebcreator.com/shopwise/demo/assets/images/discover.png" alt="ERROR"></a>
+        <a href="{% url "pagenotfound" %}"><img src="https://bestwebcreator.com/shopwise/demo/assets/images/master_card.png" alt="ERROR"></a>
+        <a href="{% url "pagenotfound" %}"><img src="https://bestwebcreator.com/shopwise/demo/assets/images/paypal.png" alt="ERROR"></a>
+        <a href="{% url "pagenotfound" %}"><img src="https://bestwebcreator.com/shopwise/demo/assets/images/amarican_express.png" alt="ERROR"></a>
+      </div>
+    </div>
+  </div>
+  <!-- Copyright Footer Start -->
+  <!-- Footer-section End -->
+  <!-- Poppup Start -->
+     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container">
+              <div class="row popup">
+                <div class="col-12 col-lg-6 ps-lg-0">
+                  <img src="https://bestwebcreator.com/shopwise/demo/assets/images/popup_img.jpg" alt="ERROR">
+                </div>
+                <div class="col-12 col-lg-6 ps-lg-0">
+                  <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-txt">
+                    <h3>Subscribe and Get 25% Discount!</h3>
+                    <p>Subscribe to the newsletter to receive <br> updates about new products.</p>
+                    <form id="showModalID">
+                      <input style="width: 100%;" type="text" class="text" placeholder="Enter your email"><br>
+                      <button style="width: 100%;" type="submit" class="btn">SUBSCRIBE</button>
+                      <div class="checkbox">
+                        <input type="checkbox" id="exampleCheck1">
+                        <label class="form-check-label user-select-none" for="exampleCheck1">Don't show this popup again!</label>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Poppup End -->
+
+  <!-- Boortstrap JS Start -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <!-- Boortstrap JS End -->
+
+  <!-- jQuery JS Link Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="{% static "javascript/xzoom.min.js" %}"></script>
+  <!-- jQuery JS Link End -->
+
+   <!-- App JS Start -->
+   <script src="{% static "javascript/app.js" %}"></script>
+   <script src="{% static "javascript/product_detail.js" %}"></script>
+   <!-- App JS End -->
+
+  <!-- Linearicons icon js link Start -->
+  <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+  <!-- Linearicons icon js link End -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>

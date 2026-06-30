@@ -1,0 +1,606 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopwise - eCommerce</title>
+  <!-- Meta Description Start -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!-- Meta Description End -->
+  
+  <!-- Meta Port Start -->
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+  <!-- Meta Port End -->
+  
+  <!-- Favicons Start -->
+  <link rel="icon" href="https://bestwebcreator.com/shopwise/demo/assets/images/favicon.png" sizes="any">
+  <link rel="icon" href="https://bestwebcreator.com/shopwise/demo/assets/images/favicon.png" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://bestwebcreator.com/shopwise/demo/assets/images/favicon.png">
+  <!-- Favicons End -->
+  
+  <!-- Add to homescreen for Chrome on Android -->
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+  <!-- Add to homescreen for Safari on iOS -->
+
+  <!-- Google Fonts Link Start -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Google Fonts Link End -->
+
+  <!-- jQuery CSS Link Start -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static "css/xzoom.min.css" %}">
+  <!-- jQuery CSS Link End -->
+
+  <!-- Linearicons icon css link Start -->
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+  <!-- Linearicons icon  css link End -->
+
+  <!-- Font Awesome Link Start -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome Link End -->
+
+  <!-- Boortstrap CSS Start -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <!-- Boortstrap CSS End -->
+
+  <!-- CSS Link Start -->
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="{% static "css/hover.css" %}">
+  <link rel="stylesheet" href="{% static "css/root.css" %}">
+  <link rel="stylesheet" href="{% static "css/details.css" %}">
+  <link rel="stylesheet" href="{% static "css/profile.css" %}">
+  <link rel="stylesheet" href="{% static "css/shop-list-left-sidebar.css" %}">
+  <!-- CSS Link End -->
+  
+  <!-- Responsive CSS Link Start -->
+  <link rel="stylesheet" href="{% static "responsive/index-responsive.css" %}">
+  <!-- Responsive CSS Link End -->
+</head>
+<body onload="preloader()" onoffline="offline()" ononline="online()">
+
+  <!-- Preloader Section Start -->
+   <section>
+      <div id="preloader">
+        <div id="loader"></div>
+      </div>
+   </section>
+  <!-- Preloader Section End -->
+  <!-- Offline Msg -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast-offline" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="border-radius: 0px;border: none;">
+      <div class="toast-header">
+        <img style="height: 25px;" src="https://bestwebcreator.com/shopwise/demo/assets/images/logo_dark.png" class="rounded me-2" alt="ERROR">
+        <strong class="me-auto"></strong>
+        <small>1 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        You are currently offline
+        <br>
+      </div>
+      <button style="width: 50%;" class="m-2 btn">Refresh</button>
+    </div>
+  </div>
+  <!-- Offline Msg -->
+  <!-- Online Msg -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast-online" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="border-radius: 0px;border: none;">
+      <div class="toast-header">
+        <img style="height: 25px;" src="https://bestwebcreator.com/shopwise/demo/assets/images/logo_dark.png" class="rounded me-2" alt="ERROR">
+        <strong class="me-auto"></strong>
+        <small>1 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        You are currently Online
+        <br>
+      </div>
+      <button style="width: 50%;" type="button" class="m-2 btn" data-bs-dismiss="toast" aria-label="Close">Close</button>
+    </div>
+  </div>
+  <!-- Online Msg -->
+  <!-- Menu Section Start -->
+  <header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid fluid-Width none-992">
+          <div class="menu-logo">
+            <img onclick="window.location.href='{% url "product_list" %}'" src="https://bestwebcreator.com/shopwise/demo/assets/images/logo_dark.png" alt="">
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item Home"><a class="nav-link" href="{% url "product_list" %}">HOME<i class="fa-light fa-chevron-down"></i></a>
+                <ul class="Home-Sub">
+                  <li><a href="{% url "pagenotfound" %}">Fashion 1</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Fashion 2</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Furniture 1</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Furniture 2</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Electronics 1</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Electronics 2</a></li>
+                </ul>
+              </li>
+              <li class="nav-item Home"><a class="nav-link" href="#">PAGES<i class="fa-light fa-chevron-down"></i></a>
+                <ul class="Home-Sub">
+                  <li><a href="{% url "pagenotfound" %}">About Us</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Contact Us</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Faq</a></li>
+                  <li><a href="{% url "pagenotfound" %}">404 Error Page</a></li>
+                  <li><a href="{% url "login" %}">Login</a></li>
+                  <li><a href="{% url "register" %}">Register</a></li>
+                  <li><a href="{% url "pagenotfound" %}">Terms & Conditions</a></li>
+                </ul>
+              </li>
+              <li class="nav-item PRODUCT"><a class="nav-link" href="#">PRODUCT<i class="fa-light fa-chevron-down"></i></a>
+                <div class="PRODUCT-Sub">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-3">
+                        <p>WOMAN'S</p>
+                        <nav>
+                          <ul>
+                            <li><a href="{% url "pagenotfound" %}">Vestibulum sed</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec porttitor</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec vitae facilisis</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Curabitur tempus</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Vivamus in tortor</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                      <div class="col-3">
+                        <p>WOMAN'S</p>
+                        <nav>
+                          <ul>
+                            <li><a href="{% url "pagenotfound" %}">Vestibulum sed</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec porttitor</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec vitae facilisis</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Curabitur tempus</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Vivamus in tortor</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                      <div class="col-3">
+                        <p>WOMAN'S</p>
+                        <nav>
+                          <ul>
+                            <li><a href="{% url "pagenotfound" %}">Vestibulum sed</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec porttitor</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec vitae facilisis</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Curabitur tempus</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Vivamus in tortor</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                      <div class="col-3">
+                        <p>WOMAN'S</p>
+                        <nav>
+                          <ul>
+                            <li><a href="{% url "pagenotfound" %}">Vestibulum sed</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec porttitor</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Donec vitae facilisis</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Curabitur tempus</a></li>
+                            <li><a href="{% url "pagenotfound" %}">Vivamus in tortor</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div>
+                    <div class="row Wooden">
+                      <div class="col-4">
+                        <div class="Wooden-Chair bg-img-1 bg-img-1-1">
+                          <div class="chair">
+                            <span>10% Off</span>
+                            <p>Wooden Chair</p>
+                            <a href="#">Shop now</a>
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="col-4">
+                        <div class="Wooden-Chair bg-img-2 bg-img-2-2">
+                          <div class="chair">
+                            <span>15% Off</span>
+                            <p>Wooden Chair</p>
+                            <a href="#">Shop now</a>
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="col-4">
+                        <div class="Wooden-Chair bg-img-3 bg-img-3-3">
+                          <div class="chair">
+                            <span>23% Off</span>
+                            <p>Wooden Chair</p>
+                            <a href="#">Shop now</a>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item BLOG"><a class="nav-link" href="#">BLOG<i class="fa-light fa-chevron-down"></i></a>
+                <ul class="right-icon">
+                  <li class="Grids"><a href="#">Grids</a>
+                    <ul class="Grids-Sub">
+                      <li><a href="{% url "pagenotfound" %}">3 Columns</a></li>
+                      <li><a href="{% url "pagenotfound" %}">4 Columns</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Right Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Standard Left Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Standard Right Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li class="Masonry"><a href="#">Masonry</a>
+                    <ul class="Masonry-Sub">
+                      <li><a href="{% url "pagenotfound" %}">3 Columns</a></li>
+                      <li><a href="{% url "pagenotfound" %}">4 Columns</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Right Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li class="Singie-PostSingie-Post"><a href="#">Singie Post</a>
+                    <ul class="Singie-Post-Sab">
+                      <li><a href="{% url "pagenotfound" %}">Default</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Slider Post</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Video Post</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Audio Post</a></li>
+                    </ul>
+                  </li>
+                  <li class="List"><a href="#">List</a>
+                    <ul class="List-Sub">
+                      <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                      <li><a href="{% url "pagenotfound" %}">Right Sidebar</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item Shop"><a class="nav-link" href="#" style="color: #ff324d;">SHOP<i class="fa-light fa-chevron-down"></i></a>
+                <div class="container Shop-Sub">
+                  <div class="row">
+                    <div class="col-3">
+                      <p>Shop Page Layout</p>
+                      <ul>
+                        <li><a href="{% url "pagenotfound" %}">Shop List View</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Shop List Left Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Shop List Right Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Right Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Shop Load More</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-3">
+                      <p>Other Pages</p>
+                      <ul>
+                        <li><a href="{% url "cart_detail" %}">Cart</a></li>
+                        <li><a href="{% url "checkout" %}">Checkout</a></li>
+                        <li><a href="{% url "profile" %}" style="color: #ff324d;">My Account</a></li>
+                        <li><a href="{% url "orderdetail" %}">Order Details</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Wishlist</a></li>
+                        <li><a href="{% url "pagenotfound" %}">compare</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-3">
+                      <p>Product Pages</p>
+                      <ul>
+                        <li><a href="{% url "pagenotfound" %}">Default</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Left Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Right Sidebar</a></li>
+                        <li><a href="{% url "pagenotfound" %}">Thumbnails Left</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-3">
+                      <div class="Collection Collection-1">
+                        <p>NEW COLLECTION</p>
+                        <h5>SALE 30% OFF</h5>
+                        <a href="{% url "pagenotfound" %}">Shop Now</a>
+                      </div>          
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="{% url "pagenotfound" %}">CONTACT US</a></li>
+            </ul>
+          </div>
+          <div class="menu-icon">
+            <ul>
+              <li class="position-relative msg-pos" style="margin-right: 30px;"><i class="fa-thin fa-cart-shopping"></i>
+                <span class="badges position-absolute start-100 translate-middle badge rounded-pill bg-danger">{{ menu_items|length }}</span>
+                <div class="msg overflow-auto">
+                  {% for item in menu_items %}
+                    <div class="toast show m-1" role="alert" aria-live="assertive" aria-atomic="true">
+                      <div class="toast-header" style="align-items: flex-start;border-radius: 0px;background-clip: initial;">
+                        {% if item.variant.image %}
+                          <img src="{{ item.variant.image.url }}" alt="Error">
+                        {% else %}
+                          {% with item.variant.product.product_images.first as img %}
+                            {% if img %}
+                              <img src="{{ img.image.url }}" alt="Error">
+                            {% else %}
+                              <img alt="No image">
+                            {% endif %}
+                          {% endwith %}
+                        {% endif %}
+                        <a href="{% url "product_detail" pk=item.variant.product.id %}" class="me-auto msg-user">{{item.variant.product.product_name}}<p>{{ item.variant.product.price }}</p></a>
+                        <small>{{item.time_ago}}</small><br>
+                        <form id="remove-form-{{ item.id }}" method="post" action="{% url 'remove_cart_item' item.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="quantity" value="0">
+                        </form>
+                        <button type="button" onclick="document.getElementById('remove-form-{{ item.id }}').submit()" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                      </div>
+                    </div>
+                  {% endfor %}
+                  <div class="Subtotal">
+                    <h4>Total :</h4>
+                    <h4>{{ menu_total_price }}</h4>
+                  </div>
+                  <div class="buttons">
+                    <a href="{% url "cart_detail" %}">View Cart</a>
+                    <a href="{% url "checkout" %}">Checkout</a>
+                  </div>
+                </div>
+              </li>
+              <li title="Profile">
+                <i onclick="window.location.href='{% url "profile" %}'" class="fa-brands fa-grav" style="font-size: 31px; color: #000; margin-top: 2px;"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</header>
+<!-- Menu Section End -->
+<!-- Pagenation Section Start -->
+<div class="container-fluid" style="background-color: var(--Product-Details-bg);margin-top: 63px;">
+    <div class="container">
+        <div class="Product-Details">
+        <h2>My Account</h2>
+        <div class="Pagenation">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url "product_list" %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url "product_list" %}">Shop</a></li>
+                <li class="breadcrumb-item active" aria-current="page">My Account</li>
+            </ol>
+            </nav>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Pagenation Section End -->
+<!-- Account Section Start --> SSH
+<div class="body">
+<div class="profile-page">
+  <div class="content">
+    <div class="content__cover">
+      {% if request.user.customer_profile.first.profile_image %}
+        <div class="content__avatar" style="background: #8f6ed5 url('{{ request.user.customer_profile.first.profile_image.url }}') center center no-repeat;"></div>
+      {% endif %}
+      <div class="content__bull"><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="content__actions"><a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+          <path fill="currentColor" d="M192 256A112 112 0 1 0 80 144a111.94 111.94 0 0 0 112 112zm76.8 32h-8.3a157.53 157.53 0 0 1-68.5 16c-24.6 0-47.6-6-68.5-16h-8.3A115.23 115.23 0 0 0 0 403.2V432a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48v-28.8A115.23 115.23 0 0 0 268.8 288z"></path>
+          <path fill="currentColor" d="M480 256a96 96 0 1 0-96-96 96 96 0 0 0 96 96zm48 32h-3.8c-13.9 4.8-28.6 8-44.2 8s-30.3-3.2-44.2-8H432c-20.4 0-39.2 5.9-55.7 15.4 24.4 26.3 39.7 61.2 39.7 99.8v38.4c0 2.2-.5 4.3-.6 6.4H592a48 48 0 0 0 48-48 111.94 111.94 0 0 0-112-112z"></path>
+        </svg><span>Connect</span></a><a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path fill="currentColor" d="M208 352c-41 0-79.1-9.3-111.3-25-21.8 12.7-52.1 25-88.7 25a7.83 7.83 0 0 1-7.3-4.8 8 8 0 0 1 1.5-8.7c.3-.3 22.4-24.3 35.8-54.5-23.9-26.1-38-57.7-38-92C0 103.6 93.1 32 208 32s208 71.6 208 160-93.1 160-208 160z"></path>
+          <path fill="currentColor" d="M576 320c0 34.3-14.1 66-38 92 13.4 30.3 35.5 54.2 35.8 54.5a8 8 0 0 1 1.5 8.7 7.88 7.88 0 0 1-7.3 4.8c-36.6 0-66.9-12.3-88.7-25-32.2 15.8-70.3 25-111.3 25-86.2 0-160.2-40.4-191.7-97.9A299.82 299.82 0 0 0 208 384c132.3 0 240-86.1 240-192a148.61 148.61 0 0 0-1.3-20.1C522.5 195.8 576 253.1 576 320z"></path>
+        </svg><span>Message</span></a></div>
+    <div class="content__title">
+      <h1>{{ request.user.first_name }} {{ request.user.last_name }}</h1><span>&mdash; {{ request.user.email }}</span>
+    </div>
+    <div class="content__description">
+      {% for address in addresses %}
+        <p>{{ address.street }}, {{ address.city }}, {{ address.postal_code }}, {{ address.country }}</p>
+      {% endfor %}
+    </div>
+    <form method="post" enctype="multipart/form-data" novalidate style="text-align: center; margin-top: 15px;">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form-group">
+          {{ field.label_tag }}
+          {{ field }}
+          {% if field.errors %}
+            <ul class="errorlist">
+                {% for error in field.errors %}<li>{{ error }}</li>{% endfor %}
+            </ul>
+          {% endif %}
+      </div>
+      {% endfor %}
+      <button type="submit" class="btn" style="width: 30%;">Save Changes</button>
+      <a href="{% url 'address_list' %}" class="btn" style="margin-left:8px; width: 30%;">Manage Addresses</a>
+    </form>
+    <div class="content__button"><a class="button" href="{% url "logout" %}">
+      <div class="button__border"></div>
+      <div class="button__bg"></div>
+      <p class="button__text" style="margin-bottom: 0rem;">Log Out</p></a>
+    </div>
+  </div>
+  <div class="bg">
+    <div><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="theme-switcher-wrapper" id="theme-switcher-wrapper"><span>Themes color</span>
+    <ul>
+      <li><em class="is-active" data-theme="orange"></em></li>
+      <li><em data-theme="green"></em></li>
+      <li><em data-theme="purple"></em></li>
+      <li><em data-theme="blue"></em></li>
+    </ul>
+  </div>
+  <div class="theme-switcher-button" id="theme-switcher-button">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+      <path fill="currentColor" d="M352 0H32C14.33 0 0 14.33 0 32v224h384V32c0-17.67-14.33-32-32-32zM0 320c0 35.35 28.66 64 64 64h64v64c0 35.35 28.66 64 64 64s64-28.65 64-64v-64h64c35.34 0 64-28.65 64-64v-32H0v32zm192 104c13.25 0 24 10.74 24 24 0 13.25-10.75 24-24 24s-24-10.75-24-24c0-13.26 10.75-24 24-24z"></path>
+    </svg>
+  </div>
+</div>
+</div>
+<!-- Account Section End -->
+<!-- Subscribe Section Start -->
+  <section id="subscribe">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="subscribe">
+            <h2>Subscribe Our Newsletter</h2>
+            <form active="#" class="subscribe-form">
+            <input type="text" placeholder="Enter Your Email">
+            <button type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Subscribe Section End -->
+<!-- Footer-section Start -->
+  <footer style="margin-top: 0px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-xxl-3">
+          <h6 class="Footer-h6">Contact info</h6>
+          <div class="row">
+            <div class="col-1">
+              <i class="lnr lnr-map-marker"></i><br>
+              <i class="lnr lnr-envelope"></i><br>
+              <i class="lnr lnr-phone-handset"></i><br>
+            </div>
+            <div class="col-11">
+              <p> 123 Street, Old Trafford, NewYork, USA</p>
+              <a href="#">info@sitename.com</a>
+              <p> + 457 789 789 65</p>
+            </div>
+          </div>
+          <nav class="Footer-social Footer-social-details">
+            <ul>
+              <li><a href="{% url "pagenotfound" %}"><i class="fa-brands fa-facebook-f"></i></a></li>
+              <li><a href="{% url "pagenotfound" %}"><i class="fa-brands fa-twitter"></i></a></li>
+              <li><a href="{% url "pagenotfound" %}"><i class="fa-brands fa-google-plus-g"></i></a></li>
+              <li><a href="{% url "pagenotfound" %}"><i class="fa-brands fa-youtube"></i></a></li>
+              <li><a href="{% url "pagenotfound" %}"><i class="fa-brands fa-wordpress"></i></a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-6 col-md-4 col-xxl-3">
+          <h6 class="Footer-h6">Useful Links</h6>
+          <ul class="Footer-txt-item">
+            <li><a href="{% url "pagenotfound" %}">About Us</a></li>
+            <li><a href="{% url "pagenotfound" %}">FAQ</a></li>
+            <li><a href="{% url "pagenotfound" %}">Location</a></li>
+            <li><a href="{% url "pagenotfound" %}">Affiliates</a></li>
+            <li><a href="{% url "pagenotfound" %}">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4 col-xxl-3">
+          <h6 class="Footer-h6">My Account</h6>
+          <ul class="Footer-txt-item">
+            <li><a href="{% url "profile" %}">My Account</a></li>
+            <li><a href="{% url "pagenotfound" %}">Discount</a></li>
+            <li><a href="{% url "pagenotfound" %}">Returns</a></li>
+            <li><a href="{% url "orderdetail" %}">Orders History</a></li>
+            <li><a href="{% url "orderdetail" %}">Order Tracking</a></li>
+          </ul>
+        </div>
+        <div class="col-12 mb-5 col-md-4 col-xxl-3">
+          <h6 class="Footer-h6">Newsletter</h6>
+          <p>If you want to get an email from us every time we have a new special offer, then sign up here!</p>
+          <div class="Footer-input">
+            <input type="text" placeholder="Enter your email" required>
+            <button type="submit"><i class="lnr lnr-checkmark-circle"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Copyright Footer Start -->
+  <div class="Copyright">
+    <div class="Copyright-txt">
+      <p>Copyright © 2024. All rights reserved. Template by <a href="https://facebook.com/devloperrayhan" target="_blank">Developer Rayhan</a>.</p>
+    </div>
+    <div class="Copyright-img">
+      <div class="Footer-img">
+        <a href="{% url "pagenotfound" %}"><img src="https://bestwebcreator.com/shopwise/demo/assets/images/visa.png" alt="ERROR"></a>
+        <a href="{% url "pagenotfound" %}"><img src="https://bestwebcreator.com/shopwise/demo/assets/images/discover.png" alt="ERROR"></a>
+        <a href="{% url "pagenotfound" %}"><img src="https://bestwebcreator.com/shopwise/demo/assets/images/master_card.png" alt="ERROR"></a>
+        <a href="{% url "pagenotfound" %}"><img src="https://bestwebcreator.com/shopwise/demo/assets/images/paypal.png" alt="ERROR"></a>
+        <a href="{% url "pagenotfound" %}"><img src="https://bestwebcreator.com/shopwise/demo/assets/images/amarican_express.png" alt="ERROR"></a>
+      </div>
+    </div>
+  </div>
+  <!-- Copyright Footer Start -->
+  <!-- Footer-section End -->
+  <!-- Poppup Start -->
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="container">
+            <div class="row popup">
+              <div class="col-12 col-lg-6 ps-lg-0">
+                <img src="https://bestwebcreator.com/shopwise/demo/assets/images/popup_img.jpg" alt="ERROR">
+              </div>
+              <div class="col-12 col-lg-6 ps-lg-0">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-txt">
+                  <h3>Subscribe and Get 25% Discount!</h3>
+                  <p>Subscribe to the newsletter to receive <br> updates about new products.</p>
+                  <form id="showModalID">
+                    <input style="width: 100%;" type="text" class="text" placeholder="Enter your email"><br>
+                    <button style="width: 100%;" type="submit" class="btn">SUBSCRIBE</button>
+                    <div class="checkbox">
+                      <input type="checkbox" id="exampleCheck1">
+                      <label class="form-check-label user-select-none" for="exampleCheck1">Don't show this popup again!</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Poppup End -->
+
+  <!-- Boortstrap JS Start -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <!-- Boortstrap JS End -->
+
+  <!-- jQuery JS Link Start -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="{% static "javascript/xzoom.min.js" %}"></script>
+  <!-- jQuery JS Link End -->
+
+   <!-- App JS Start -->
+   <script src="{% static "javascript/app.js" %}"></script>
+   <script src="{% static "javascript/profile.js" %}"></script>
+   <!-- App JS End -->
+
+  <!-- Linearicons icon js link Start -->
+  <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+  <!-- Linearicons icon js link End -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
